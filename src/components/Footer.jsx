@@ -33,6 +33,11 @@ const socialLinks = [
     href: 'https://www.facebook.com/Ssushamaray',
     Icon: FiFacebook,
   },
+  {
+      label: 'Instagram',
+      href: 'https://www.instagram.com/_sushama.ray_',
+      Icon: FiInstagram,
+    },
 ]
 
 export default function Footer() {
