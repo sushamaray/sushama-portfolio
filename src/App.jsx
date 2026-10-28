@@ -8,6 +8,8 @@ import Education from './components/Education'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
 import ProjectDetail from './components/ProjectDetail'
+import Contact from './components/Contact'
+
 
 function HomePage() {
   return (
@@ -18,9 +20,11 @@ function HomePage() {
       <Education />
       <Experience />
       <Projects />
+      <Contact />
     </>
   )
 }
+
 
 function NotFound() {
   return (
