@@ -47,8 +47,7 @@ export default function Experience() {
             id="experience-title"
             className="font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-[#F5F3FF] sm:text-4xl lg:text-5xl"
           >
-            Experience, Research{' '}
-            <span className="text-[#A78BFA]">& Achievements</span>
+            Experience, Research{' '}& Achievements
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#A1A1B5] sm:text-base sm:leading-8">

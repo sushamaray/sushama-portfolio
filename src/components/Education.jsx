@@ -19,7 +19,7 @@ export default function Education() {
             id="education-title"
             className="font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-[#F5F3FF] sm:text-4xl lg:text-5xl"
           >
-            My <span className="text-[#A78BFA]">Education</span>
+            My Education
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#A1A1B5] sm:text-base sm:leading-8">
