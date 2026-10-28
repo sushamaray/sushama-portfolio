@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import {
   FiGithub,
   FiMenu,
@@ -18,6 +19,9 @@ const navLinks = [
 ]
 
 export default function Navbar() {
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [scrolled, setScrolled] = useState(false)
@@ -25,6 +29,11 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+
+      if (!isHomePage) {
+        setActiveSection('')
+        return
+      }
 
       const sections = navLinks
         .map(({ href }) => document.querySelector(href))
@@ -47,7 +56,11 @@ export default function Navbar() {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [isHomePage, location.pathname])
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
@@ -58,6 +71,36 @@ export default function Navbar() {
   }, [menuOpen])
 
   const closeMenu = () => setMenuOpen(false)
+
+  
+const handleNavClick = (event, href) => {
+  closeMenu()
+
+  if (isHomePage) {
+    event.preventDefault()
+
+    const targetSection = document.querySelector(href)
+
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+
+      window.history.replaceState(null, '', href)
+    }
+
+    return
+  }
+
+  sessionStorage.setItem('portfolio-target-section', href)
+}
+
+
+  const getNavHref = (href) => (isHomePage ? href : `/${href}`)
+
+  const isActive = (href) =>
+    isHomePage && activeSection === href.slice(1)
 
   return (
     <header
@@ -71,23 +114,24 @@ export default function Navbar() {
         className="mx-auto flex min-h-[72px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10"
         aria-label="Main navigation"
       >
-        <a
-          href="#home"
+        <Link
+          to="/#home"
           onClick={closeMenu}
           className="shrink-0 font-['Space_Grotesk'] text-2xl font-bold tracking-tight text-[#F5F3FF]"
           aria-label="Sushama Ray, home"
         >
           Sushama<span className="text-[#A78BFA]">.</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map(({ label, href }) => (
             <a
+            onClick={(event) => handleNavClick(event, href)}
               key={href}
-              href={href}
-              aria-current={activeSection === href.slice(1) ? 'location' : undefined}
+              href={getNavHref(href)}
+              aria-current={isActive(href) ? 'location' : undefined}
               className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                activeSection === href.slice(1)
+                isActive(href)
                   ? 'text-[#A78BFA]'
                   : 'text-[#A1A1B5] hover:text-[#F5F3FF]'
               }`}
@@ -101,7 +145,7 @@ export default function Navbar() {
           <a
             href="https://github.com/sushamaray"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/50 px-4 py-2 text-sm font-semibold text-[#F5F3FF] transition-all duration-200 hover:border-[#A78BFA] hover:bg-[#8B5CF6]/10"
           >
             <FiGithub size={17} aria-hidden="true" />
@@ -113,12 +157,18 @@ export default function Navbar() {
         <button
           type="button"
           className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-[#2B2B3D] text-[#F5F3FF] transition-colors hover:border-[#8B5CF6] lg:hidden"
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-label={
+            menuOpen ? 'Close navigation menu' : 'Open navigation menu'
+          }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? <FiX size={23} /> : <FiMenu size={23} />}
+          {menuOpen ? (
+            <FiX size={23} aria-hidden="true" />
+          ) : (
+            <FiMenu size={23} aria-hidden="true" />
+          )}
         </button>
       </nav>
 
@@ -131,11 +181,11 @@ export default function Navbar() {
             {navLinks.map(({ label, href }) => (
               <a
                 key={href}
-                href={href}
-                onClick={closeMenu}
-                aria-current={activeSection === href.slice(1) ? 'location' : undefined}
+                href={getNavHref(href)}
+                onClick={(event) => handleNavClick(event, href)}
+                aria-current={isActive(href) ? 'location' : undefined}
                 className={`rounded-lg px-4 py-3 text-sm font-medium transition-colors ${
-                  activeSection === href.slice(1)
+                  isActive(href)
                     ? 'bg-[#8B5CF6]/10 text-[#A78BFA]'
                     : 'text-[#A1A1B5] hover:bg-white/5 hover:text-[#F5F3FF]'
                 }`}
@@ -147,7 +197,7 @@ export default function Navbar() {
             <a
               href="https://github.com/sushamaray"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               onClick={closeMenu}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg border border-[#8B5CF6]/50 px-4 py-3 text-sm font-semibold text-[#F5F3FF] hover:bg-[#8B5CF6]/10"
             >

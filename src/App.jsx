@@ -1,5 +1,5 @@
-
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -48,6 +48,27 @@ function NotFound() {
 }
 
 function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const targetSection = sessionStorage.getItem(
+      'portfolio-target-section',
+    )
+
+    if (location.pathname === '/' && targetSection) {
+      sessionStorage.removeItem('portfolio-target-section')
+
+      const sectionId = targetSection.slice(1)
+
+      requestAnimationFrame(() => {
+        document.getElementById(sectionId)?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+      })
+    }
+  }, [location.pathname, location.hash])
+
   return (
     <>
       <Navbar />
