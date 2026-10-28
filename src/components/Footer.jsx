@@ -30,7 +30,7 @@ const socialLinks = [
   },
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/',
+    href: 'https://www.facebook.com/Ssushamaray',
     Icon: FiFacebook,
   },
 ]
