@@ -5,6 +5,7 @@ import {
   FiGithub,
   FiLinkedin,
   FiFacebook,
+  FiInstagram,
 } from 'react-icons/fi'
 
 const quickLinks = [
