@@ -120,13 +120,14 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
             <a
-              href="/resume.pdf"
-              download="Sushama-Ray-Resume.pdf"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#8B5CF6] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#6D28D9]/20 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#6D28D9]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A78BFA] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B12]"
-            >
-              <FiDownload size={18} aria-hidden="true" />
-              Download Resume
-            </a>
+    href="/sushama-resume.pdf"
+    download="Sushama-Ray-Resume.pdf"
+    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#6D28D9] to-[#8B5CF6] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#6D28D9]/20 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#6D28D9]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A78BFA] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B12]"
+  >
+    <FiDownload size={18} aria-hidden="true" />
+    Download Resume
+  </a>
+
 
             <a
               href="#projects"
