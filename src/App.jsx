@@ -9,6 +9,7 @@ import Experience from './components/Experience'
 import Projects from './components/Projects'
 import ProjectDetail from './components/ProjectDetail'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 
 function HomePage() {
@@ -84,6 +85,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+
+      <Footer />
     </>
   )
 }
