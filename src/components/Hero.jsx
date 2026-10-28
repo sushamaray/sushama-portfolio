@@ -90,13 +90,6 @@ export default function Hero() {
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-14 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-10 lg:py-24">
         <div className="order-2 text-center lg:order-1 lg:text-left">
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/30 bg-[#8B5CF6]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#C4B5FD] sm:text-sm">
-            <span
-              aria-hidden="true"
-              className="h-2 w-2 rounded-full bg-[#A78BFA] shadow-[0_0_12px_#8B5CF6]"
-            />
-            Welcome to my portfolio
-          </p>
 
           <h1
             id="hero-title"
