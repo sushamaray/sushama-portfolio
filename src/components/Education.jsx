@@ -86,7 +86,7 @@ export default function Education() {
                     <div>
                       <p className="text-xs text-[#A1A1B5]">Institution</p>
                       <p className="mt-1 text-sm font-medium text-[#F5F3FF]">
-                        UIU, Bangladesh
+                        United International University, Dhaka, Bangladesh
                       </p>
                     </div>
                   </div>

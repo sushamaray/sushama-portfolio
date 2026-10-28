@@ -12,7 +12,7 @@ const contactLinks = [
   {
     label: 'LinkedIn',
     value: 'Connect professionally',
-    href: 'https://www.linkedin.com/',
+    href: 'https://www.linkedin.com/sushamaray',
     Icon: FiLinkedin,
   },
   {
@@ -24,7 +24,7 @@ const contactLinks = [
   {
     label: 'Facebook',
     value: 'Connect with me',
-    href: 'https://www.facebook.com/',
+    href: 'https://www.facebook.com/sushamaray',
     Icon: FiFacebook,
   },
 ]
@@ -58,7 +58,7 @@ export default function Contact() {
 
         <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           <a
-            href="mailto:"
+            href="mailto:contact.sushamaray@gmail.com"
             className="group flex flex-col rounded-2xl border border-[#2B2B3D] bg-[#12121C] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#8B5CF6]/60 sm:p-8"
           >
             <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#8B5CF6]/10 text-[#A78BFA]">
