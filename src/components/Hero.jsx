@@ -24,18 +24,18 @@ const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/',
+    href: 'https://www.linkedin.com/in/sushamaray',
     Icon: FiLinkedin,
   },
   {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/',
-    Icon: FiInstagram,
+    label: 'Facebook',
+    href: 'https://www.facebook.com/ssushamaray',
+    Icon: FiFacebook,
   },
   {
-    label: 'Facebook',
-    href: 'https://www.facebook.com/',
-    Icon: FiFacebook,
+    label: 'Instagram',
+    href: 'https://www.instagram.com/_sushama.ray_',
+    Icon: FiInstagram,
   },
 ]
 

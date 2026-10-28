@@ -24,7 +24,7 @@ const contactLinks = [
   {
     label: 'Facebook',
     value: 'Connect with me',
-    href: 'https://www.facebook.com/sushamaray',
+    href: 'https://www.facebook.com/Ssushamaray',
     Icon: FiFacebook,
   },
 ]
