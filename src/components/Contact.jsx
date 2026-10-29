@@ -7,23 +7,26 @@ import {
   FiMessageCircle,
 } from 'react-icons/fi'
 
-const contactLinks = [
+const socialLinks = [
+  {
+    label: 'Email Me',
+    value: "Have an opportunity or an idea? Let's talk.",
+    href: 'mailto:contact.sushamaray@gmail.com',
+    action: 'Send an email',
+    Icon: FiMail,
+  },
   {
     label: 'LinkedIn',
     value: 'Connect professionally',
     href: 'https://www.linkedin.com/in/sushamaray',
+    action: 'Visit LinkedIn',
     Icon: FiLinkedin,
-  },
-  {
-    label: 'GitHub',
-    value: 'Explore my projects',
-    href: 'https://github.com/sushamaray',
-    Icon: FiGithub,
   },
   {
     label: 'Facebook',
     value: 'Connect with me',
     href: 'https://www.facebook.com/Ssushamaray',
+    action: 'Visit Facebook',
     Icon: FiFacebook,
   },
 ]
@@ -33,11 +36,11 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="bg-[var(--color-background)] px-5 py-20 transition-colors duration-300 sm:px-8 sm:py-24 lg:px-10"
+      className="bg-[var(--color-background)] px-4 py-14 transition-colors duration-300 sm:px-8 sm:py-16 lg:px-10"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-light)]">
+      <div className="mx-auto max-w-5xl">
+        <div className="mx-auto mb-10 max-w-2xl text-center">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-light)] sm:text-sm">
             Get in touch
           </p>
 
@@ -48,76 +51,87 @@ export default function Contact() {
             Let&apos;s Connect
           </h2>
 
-          <p className="mt-5 text-sm leading-7 text-[var(--color-text-muted)] sm:text-base sm:leading-8">
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-[var(--color-text-muted)] sm:text-base sm:leading-8">
             I&apos;m open to discussing opportunities, collaborating on
             projects, and connecting with people in software development
             and AI/ML.
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-          <a
-            href="mailto:contact.sushamaray@gmail.com"
-            className="group flex flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[var(--color-primary)]/60 sm:p-8"
-          >
-            <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary-light)]">
-              <FiMail size={23} aria-hidden="true" />
-            </span>
+        {/* Top row: Email, LinkedIn, Facebook */}
+        <div className="mx-auto grid max-w-4xl grid-cols-3 gap-2.5 sm:gap-4">
+          {socialLinks.map(({ label, value, href, action, Icon }) => {
+            const isEmail = href.startsWith('mailto:')
 
-            <h3 className="text-xl font-bold text-[var(--color-text)]">
-              Email Me
-            </h3>
+            return (
+              <a
+                key={label}
+                href={href}
+                target={isEmail ? undefined : '_blank'}
+                rel={isEmail ? undefined : 'noopener noreferrer'}
+                className="group flex min-w-0 flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)]/60 sm:p-4"
+              >
+                <div className="flex min-w-0 flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-2.5">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/10 text-[var(--color-primary-light)] sm:h-9 sm:w-9">
+                    <Icon size={18} aria-hidden="true" />
+                  </span>
 
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
-              Have an opportunity or an idea? Let&apos;s talk.
-            </p>
+                  <h3 className="break-words text-xs font-semibold text-[var(--color-text)] sm:text-sm">
+                    {label}
+                  </h3>
+                </div>
 
-            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary-light)]">
-              Send an email
-              <FiArrowUpRight
-                size={17}
-                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                aria-hidden="true"
-              />
-            </span>
-          </a>
+                <p className="mt-3 text-xs leading-5 text-[var(--color-text-muted)]">
+                  {value}
+                </p>
 
-          {contactLinks.map(({ label, value, href, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition duration-200 hover:-translate-y-1 hover:border-[var(--color-primary)]/60 sm:p-8"
-            >
-              <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary-light)]">
-                <Icon size={23} aria-hidden="true" />
-              </span>
-
-              <h3 className="text-xl font-bold text-[var(--color-text)]">
-                {label}
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">
-                {value}
-              </p>
-
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary-light)]">
-                Visit {label}
-                <FiArrowUpRight
-                  size={17}
-                  className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                  aria-hidden="true"
-                />
-              </span>
-            </a>
-          ))}
+                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-primary-light)]">
+                  <span>{action}</span>
+                  <FiArrowUpRight
+                    size={14}
+                    className="shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    aria-hidden="true"
+                  />
+                </span>
+              </a>
+            )
+          })}
         </div>
 
-        <div className="mt-12 flex items-center justify-center gap-2 text-sm text-[var(--color-text-muted)]">
+        {/* Bottom row: GitHub */}
+        <a
+          href="https://github.com/sushamaray"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mx-auto mt-4 flex max-w-4xl items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 transition-all duration-200 hover:border-[var(--color-primary)]/60 sm:gap-4 sm:p-3"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/10 text-[var(--color-primary-light)] sm:h-11 sm:w-11">
+            <FiGithub size={22} aria-hidden="true" />
+          </span>
+
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-semibold text-[var(--color-text)] sm:text-base">
+              GitHub
+            </span>
+            <span className="mt-1 block text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm">
+              Explore my projects
+            </span>
+          </span>
+
+          <span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-semibold text-[var(--color-primary-light)] sm:text-sm">
+            <span>Visit GitHub</span>
+            <FiArrowUpRight
+              size={16}
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
+          </span>
+        </a>
+
+        <div className="mt-7 flex items-center justify-center gap-2 text-center text-xs text-[var(--color-text-muted)] sm:text-sm">
           <FiMessageCircle
-            size={17}
-            className="text-[var(--color-primary-light)]"
+            size={16}
+            className="shrink-0 text-[var(--color-primary-light)]"
             aria-hidden="true"
           />
           Looking forward to connecting with you.
