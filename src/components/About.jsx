@@ -160,7 +160,6 @@ export default function About() {
               </p>
 
               <p className="mt-2 text-sm leading-7 text-[var(--color-text-muted)]">
-                ### Beyond Programming
                 Beyond technology, I enjoy exploring creative ideas through graphic design and UI/UX design, learning new skills, and sharing knowledge with others. I love combining creativity with technology to create meaningful digital experiences. I believe in patience, continuous learning, and personal growth throughout my journey.
               </p>
             </div>
