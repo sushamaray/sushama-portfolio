@@ -1,16 +1,15 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bricolage Grotesque:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
-
 :root {
-  font-family: "Inter", sans-serif;
-  color: #F5F3FF;
-  background-color: #0B0B12;
-
+  font-family: "Bricolage Grotesque", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  color-scheme: dark;
+
+  /* Dark theme */
   --color-background: #0B0B12;
   --color-surface: #12121C;
   --color-card: #1B1B2A;
@@ -20,6 +19,29 @@
   --color-text: #F5F3FF;
   --color-text-muted: #A1A1B5;
   --color-border: #2B2B3D;
+
+  --color-navbar: #0B0B12;
+  --color-input: #12121C;
+  --color-tag: #0B0B12;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-background: #FFFFFF;
+  --color-surface: #F8F7FC;
+  --color-card: #FFFFFF;
+  --color-primary: #7C3AED;
+  --color-primary-light: #7C3AED;
+  --color-primary-dark: #6D28D9;
+  --color-text: #171526;
+  --color-text-muted: #625F73;
+  --color-border: #E5E1EF;
+
+  --color-navbar: #FFFFFF;
+  --color-input: #FFFFFF;
+  --color-tag: #F3F0FA;
 }
 
 * {
@@ -36,6 +58,10 @@ body {
   min-height: 100vh;
   background-color: var(--color-background);
   color: var(--color-text);
+  font-family: "Bricolage Grotesque", sans-serif;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
 }
 
 button,
@@ -54,6 +80,7 @@ a {
   text-decoration: none;
 }
 
+/* Keep Space Grotesk for headings */
 h1,
 h2,
 h3,

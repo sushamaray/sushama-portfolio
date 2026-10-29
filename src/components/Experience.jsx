@@ -15,15 +15,16 @@ import {
 } from '../data/experienceData'
 
 const cardClass =
-  'rounded-2xl border border-[#2B2B3D] bg-[#12121C] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#8B5CF6]/50 sm:p-7'
+  'rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/50 sm:p-7'
 
 function SectionHeading({ icon: Icon, title }) {
   return (
     <div className="mb-6 flex items-center gap-3">
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#8B5CF6]/30 bg-[#8B5CF6]/10 text-[#A78BFA]">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/10 text-[var(--color-primary-light)]">
         <Icon size={21} aria-hidden="true" />
       </div>
-      <h3 className="font-['Space_Grotesk'] text-xl font-bold text-[#F5F3FF] sm:text-2xl">
+
+      <h3 className="font-['Space_Grotesk'] text-xl font-bold text-[var(--color-text)] sm:text-2xl">
         {title}
       </h3>
     </div>
@@ -35,22 +36,22 @@ export default function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-title"
-      className="scroll-mt-24 py-20 sm:py-24 lg:py-28"
+      className="scroll-mt-24 bg-[var(--color-background)] py-20 transition-colors duration-300 sm:py-24 lg:py-28"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#A78BFA]">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-primary-light)]">
             My journey so far
           </p>
 
           <h2
             id="experience-title"
-            className="font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-[#F5F3FF] sm:text-4xl lg:text-5xl"
+            className="font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-[var(--color-text)] sm:text-4xl lg:text-5xl"
           >
-            Experience, Research{' '}& Achievements
+            Experience, Research &amp; Achievements
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#A1A1B5] sm:text-base sm:leading-8">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[var(--color-text-muted)] sm:text-base sm:leading-8">
             A snapshot of my research interests, leadership experience,
             community involvement, and continuous learning.
           </p>
@@ -66,19 +67,19 @@ export default function Experience() {
             <div className="space-y-4">
               {experienceData.map((item) => (
                 <article key={item.organization} className={cardClass}>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#A78BFA]">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary-light)]">
                     {item.period}
                   </p>
 
-                  <h4 className="mt-3 font-['Space_Grotesk'] text-lg font-semibold text-[#F5F3FF]">
+                  <h4 className="mt-3 font-['Space_Grotesk'] text-lg font-semibold text-[var(--color-text)]">
                     {item.role}
                   </h4>
 
-                  <p className="mt-1 text-sm font-medium text-[#C4B5FD]">
+                  <p className="mt-1 text-sm font-medium text-[var(--color-primary-light)]">
                     {item.organization}
                   </p>
 
-                  <p className="mt-4 text-sm leading-7 text-[#A1A1B5]">
+                  <p className="mt-4 text-sm leading-7 text-[var(--color-text-muted)]">
                     {item.description}
                   </p>
                 </article>
@@ -91,26 +92,29 @@ export default function Experience() {
               <SectionHeading icon={FiBookOpen} title="Research" />
 
               {researchData.map((item) => (
-                <article key={item.title} className={cardClass}>
+                <article
+                  key={item.title}
+                  className={cardClass}
+                >
                   <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-                    <span className="rounded-full border border-[#8B5CF6]/30 bg-[#8B5CF6]/10 px-3 py-1 text-xs font-medium text-[#C4B5FD]">
+                    <span className="rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/10 px-3 py-1 text-xs font-medium text-[var(--color-primary-light)]">
                       {item.category}
                     </span>
 
-                    <span className="inline-flex items-center gap-2 text-xs font-medium text-[#A78BFA]">
+                    <span className="inline-flex items-center gap-2 text-xs font-medium text-[var(--color-primary-light)]">
                       <span
-                        className="h-2 w-2 rounded-full bg-[#A78BFA]"
+                        className="h-2 w-2 rounded-full bg-[var(--color-primary-light)]"
                         aria-hidden="true"
                       />
                       {item.status}
                     </span>
                   </div>
 
-                  <h4 className="font-['Space_Grotesk'] text-lg font-semibold leading-7 text-[#F5F3FF]">
+                  <h4 className="font-['Space_Grotesk'] text-lg font-semibold leading-7 text-[var(--color-text)]">
                     {item.title}
                   </h4>
 
-                  <p className="mt-3 text-sm leading-7 text-[#A1A1B5]">
+                  <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">
                     {item.description}
                   </p>
 
@@ -118,7 +122,7 @@ export default function Experience() {
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-lg border border-[#2B2B3D] bg-[#0B0B12] px-3 py-1.5 text-xs text-[#D8D4E8]"
+                        className="rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-1.5 text-xs text-[var(--color-text)]"
                       >
                         {tag}
                       </span>
@@ -129,28 +133,33 @@ export default function Experience() {
             </div>
 
             <div>
-              <SectionHeading icon={FiAward} title="Achievements" />
+              <SectionHeading
+                icon={FiAward}
+                title="Achievements"
+              />
 
-              
               {achievementData.map((item) => (
-                <article key={item.title} className={cardClass}>
+                <article
+                  key={item.title}
+                  className={cardClass}
+                >
                   <div className="flex items-start gap-4">
                     <FiCheckCircle
                       size={22}
-                      className="mt-1 shrink-0 text-[#A78BFA]"
+                      className="mt-1 shrink-0 text-[var(--color-primary-light)]"
                       aria-hidden="true"
                     />
 
                     <div>
-                      <h4 className="font-semibold text-[#F5F3FF]">
+                      <h4 className="font-semibold text-[var(--color-text)]">
                         {item.title}
                       </h4>
 
-                      <p className="mt-1 text-sm text-[#A78BFA]">
+                      <p className="mt-1 text-sm text-[var(--color-primary-light)]">
                         {item.organization}
                       </p>
 
-                      <p className="mt-3 text-sm leading-6 text-[#A1A1B5]">
+                      <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">
                         {item.description}
                       </p>
                     </div>
@@ -169,7 +178,7 @@ export default function Experience() {
                 {certificationData.map((certification) => (
                   <span
                     key={certification}
-                    className="rounded-xl border border-[#2B2B3D] bg-[#0B0B12] px-3 py-2.5 text-sm text-[#D8D4E8] transition-colors hover:border-[#8B5CF6]/50 hover:text-[#F5F3FF]"
+                    className="rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2.5 text-sm text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary-light)]"
                   >
                     {certification}
                   </span>

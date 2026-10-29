@@ -1,5 +1,5 @@
 import { Link, Route, Routes, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,7 +10,6 @@ import Projects from './components/Projects'
 import ProjectDetail from './components/ProjectDetail'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-
 
 function HomePage() {
   return (
@@ -26,25 +25,24 @@ function HomePage() {
   )
 }
 
-
 function NotFound() {
   return (
-    <section className="flex min-h-[70vh] flex-col items-center justify-center bg-[#0B0B12] px-6 text-center">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#A78BFA]">
+    <section className="flex min-h-[70vh] flex-col items-center justify-center bg-[var(--color-background)] px-6 text-center transition-colors duration-300">
+      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-primary-light)]">
         404 Error
       </p>
 
-      <h1 className="mb-4 text-4xl font-bold text-[#F5F3FF]">
+      <h1 className="mb-4 font-['Space_Grotesk'] text-4xl font-bold text-[var(--color-text)]">
         Page Not Found
       </h1>
 
-      <p className="mb-8 max-w-md leading-7 text-[#A1A1B5]">
+      <p className="mb-8 max-w-md leading-7 text-[var(--color-text-muted)]">
         Sorry, the page you are looking for does not exist.
       </p>
 
       <Link
         to="/"
-        className="rounded-lg bg-[#8B5CF6] px-5 py-3 font-semibold text-white transition-colors hover:bg-[#6D28D9]"
+        className="rounded-lg bg-[var(--color-primary)] px-5 py-3 font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
       >
         Back to Home
       </Link>
@@ -54,6 +52,22 @@ function NotFound() {
 
 function App() {
   const location = useLocation()
+
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('portfolio-theme')
+    return savedTheme === 'light' ? 'light' : 'dark'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('portfolio-theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) =>
+      currentTheme === 'dark' ? 'light' : 'dark',
+    )
+  }
 
   useEffect(() => {
     const targetSection = sessionStorage.getItem(
@@ -76,7 +90,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <main>
         <Routes>

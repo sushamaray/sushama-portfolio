@@ -17,22 +17,22 @@ function ProjectDetail() {
 
   if (!project) {
     return (
-      <section className="flex min-h-[70vh] flex-col items-center justify-center bg-[#0B0B12] px-6 text-center">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#A78BFA]">
+      <section className="flex min-h-[70vh] flex-col items-center justify-center bg-[var(--color-background)] px-6 text-center transition-colors duration-300">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-primary-light)]">
           404 Error
         </p>
 
-        <h1 className="mb-4 text-3xl font-bold text-[#F5F3FF] sm:text-4xl">
+        <h1 className="mb-4 font-['Space_Grotesk'] text-3xl font-bold text-[var(--color-text)] sm:text-4xl">
           Project Not Found
         </h1>
 
-        <p className="mb-8 max-w-md leading-7 text-[#A1A1B5]">
+        <p className="mb-8 max-w-md leading-7 text-[var(--color-text-muted)]">
           The project you are looking for does not exist or may have been moved.
         </p>
 
         <Link
           to="/#projects"
-          className="inline-flex items-center gap-2 rounded-lg bg-[#8B5CF6] px-5 py-3 font-semibold text-white transition-colors hover:bg-[#6D28D9]"
+          className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-primary)] px-5 py-3 font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
         >
           <FiArrowLeft size={18} aria-hidden="true" />
           Back to Projects
@@ -42,44 +42,41 @@ function ProjectDetail() {
   }
 
   return (
-    <section className="min-h-screen bg-[#0B0B12] px-6 py-14 sm:px-10 sm:py-20 lg:px-16">
+    <section className="min-h-screen bg-[var(--color-background)] px-6 py-14 transition-colors duration-300 sm:px-10 sm:py-20 lg:px-16">
       <div className="mx-auto max-w-5xl">
-        {/* Back navigation */}
         <Link
           to="/#projects"
-          className="mb-10 inline-flex items-center gap-2 text-sm font-medium text-[#A78BFA] transition-colors hover:text-[#F5F3FF]"
+          className="mb-10 inline-flex items-center gap-2 text-sm font-medium text-[var(--color-primary-light)] transition-colors hover:text-[var(--color-text)]"
         >
           <FiArrowLeft size={17} aria-hidden="true" />
           Back to Projects
         </Link>
 
-        {/* Project hero */}
-        <header className="mb-12 border-b border-[#2B2B3D] pb-10">
+        <header className="mb-12 border-b border-[var(--color-border)] pb-10">
           <div className="mb-5 flex flex-wrap items-center gap-3">
-            <span className="rounded-full border border-[#8B5CF6]/40 bg-[#8B5CF6]/10 px-3 py-1.5 text-xs font-semibold text-[#A78BFA]">
+            <span className="rounded-full border border-[var(--color-primary)]/40 bg-[var(--color-primary)]/10 px-3 py-1.5 text-xs font-semibold text-[var(--color-primary-light)]">
               {project.category}
             </span>
 
-            <span className="text-sm text-[#A1A1B5]">
+            <span className="text-sm text-[var(--color-text-muted)]">
               {project.year}
             </span>
           </div>
 
-          <h1 className="mb-4 text-3xl font-bold tracking-tight text-[#F5F3FF] sm:text-4xl lg:text-5xl">
+          <h1 className="mb-4 font-['Space_Grotesk'] text-3xl font-bold tracking-tight text-[var(--color-text)] sm:text-4xl lg:text-5xl">
             {project.title}
           </h1>
 
-          <p className="mb-6 text-lg font-medium text-[#A78BFA] sm:text-xl">
+          <p className="mb-6 text-lg font-medium text-[var(--color-primary-light)] sm:text-xl">
             {project.subtitle}
           </p>
 
           <div className="max-w-3xl">
-            <p className="text-base leading-8 text-[#A1A1B5]">
+            <p className="text-base leading-8 text-[var(--color-text-muted)]">
               {project.description}
             </p>
           </div>
 
-          {/* Project links */}
           {(project.githubUrl || project.liveUrl) && (
             <div className="mt-8 flex flex-wrap gap-3">
               {project.liveUrl && (
@@ -87,7 +84,7 @@ function ProjectDetail() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#8B5CF6] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#6D28D9]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
                 >
                   <FiExternalLink size={17} aria-hidden="true" />
                   Live Demo
@@ -100,7 +97,7 @@ function ProjectDetail() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-[#2B2B3D] px-5 py-3 text-sm font-semibold text-[#F5F3FF] transition-colors hover:border-[#8B5CF6] hover:text-[#A78BFA]"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-border)] px-5 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:border-[var(--color-primary)] hover:text-[var(--color-primary-light)]"
                 >
                   <FiCode size={17} aria-hidden="true" />
                   View Source Code
@@ -111,38 +108,36 @@ function ProjectDetail() {
           )}
         </header>
 
-        {/* Main content */}
         <div className="grid gap-8 md:grid-cols-[1.6fr_1fr]">
-          {/* Project overview and features */}
           <div className="space-y-8">
-            <section className="rounded-2xl border border-[#2B2B3D] bg-[#12121C] p-6 sm:p-8">
+            <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
               <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#8B5CF6]/10 text-[#A78BFA]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary-light)]">
                   <FiFolder size={20} aria-hidden="true" />
                 </div>
 
-                <h2 className="text-xl font-bold text-[#F5F3FF]">
+                <h2 className="font-['Space_Grotesk'] text-xl font-bold text-[var(--color-text)]">
                   Project Overview
                 </h2>
               </div>
 
-              <p className="text-sm leading-8 text-[#A1A1B5]">
+              <p className="text-sm leading-8 text-[var(--color-text-muted)]">
                 {project.description}
               </p>
             </section>
 
-            <section className="rounded-2xl border border-[#2B2B3D] bg-[#12121C] p-6 sm:p-8">
+            <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#8B5CF6]/10 text-[#A78BFA]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary-light)]">
                   <FiLayers size={20} aria-hidden="true" />
                 </div>
 
                 <div>
-                  <h2 className="text-xl font-bold text-[#F5F3FF]">
+                  <h2 className="font-['Space_Grotesk'] text-xl font-bold text-[var(--color-text)]">
                     Key Features
                   </h2>
 
-                  <p className="mt-1 text-sm text-[#A1A1B5]">
+                  <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                     Core capabilities of the project
                   </p>
                 </div>
@@ -155,36 +150,38 @@ function ProjectDetail() {
                       key={`${project.id}-feature-${index}`}
                       className="flex items-start gap-3"
                     >
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#8B5CF6]" />
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--color-primary)]"
+                      />
 
-                      <p className="text-sm leading-7 text-[#A1A1B5]">
+                      <p className="text-sm leading-7 text-[var(--color-text-muted)]">
                         {feature}
                       </p>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm leading-7 text-[#A1A1B5]">
+                <p className="text-sm leading-7 text-[var(--color-text-muted)]">
                   Feature details will be added soon.
                 </p>
               )}
             </section>
           </div>
 
-          {/* Technology stack */}
           <aside>
-            <section className="rounded-2xl border border-[#2B2B3D] bg-[#12121C] p-6 sm:p-8 md:sticky md:top-8">
+            <section className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8 md:sticky md:top-8">
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#8B5CF6]/10 text-[#A78BFA]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary-light)]">
                   <FiCode size={20} aria-hidden="true" />
                 </div>
 
                 <div>
-                  <h2 className="text-xl font-bold text-[#F5F3FF]">
+                  <h2 className="font-['Space_Grotesk'] text-xl font-bold text-[var(--color-text)]">
                     Technology Stack
                   </h2>
 
-                  <p className="mt-1 text-sm text-[#A1A1B5]">
+                  <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                     Tools and technologies
                   </p>
                 </div>
@@ -195,28 +192,28 @@ function ProjectDetail() {
                   {project.technologies.map((technology) => (
                     <span
                       key={`${project.id}-${technology}`}
-                      className="rounded-lg border border-[#2B2B3D] bg-[#0B0B12] px-3 py-2 text-sm font-medium text-[#A1A1B5] transition-colors hover:border-[#8B5CF6]/60 hover:text-[#F5F3FF]"
+                      className="rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 text-sm font-medium text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-primary)]/60 hover:text-[var(--color-text)]"
                     >
                       {technology}
                     </span>
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-[#A1A1B5]">
+                <p className="text-sm text-[var(--color-text-muted)]">
                   Technology information will be added soon.
                 </p>
               )}
 
-              <div className="mt-8 border-t border-[#2B2B3D] pt-6">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#A78BFA]">
+              <div className="mt-8 border-t border-[var(--color-border)] pt-6">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary-light)]">
                   Project
                 </p>
 
-                <p className="text-base font-semibold text-[#F5F3FF]">
+                <p className="text-base font-semibold text-[var(--color-text)]">
                   {project.title}
                 </p>
 
-                <p className="mt-1 text-sm text-[#A1A1B5]">
+                <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                   {project.year} · {project.category}
                 </p>
               </div>
@@ -224,11 +221,10 @@ function ProjectDetail() {
           </aside>
         </div>
 
-        {/* Bottom navigation */}
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[#2B2B3D] pt-8">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--color-border)] pt-8">
           <Link
             to="/#projects"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#A78BFA] transition-colors hover:text-[#F5F3FF]"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary-light)] transition-colors hover:text-[var(--color-text)]"
           >
             <FiArrowLeft size={17} aria-hidden="true" />
             Explore More Projects
@@ -236,7 +232,7 @@ function ProjectDetail() {
 
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#A1A1B5] transition-colors hover:text-[#F5F3FF]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
           >
             Back to Home
             <FiArrowUpRight size={15} aria-hidden="true" />
