@@ -114,7 +114,68 @@ export const projectsData = [
       'JWT Authentication',
     ],
 
-    githubUrl: '',
+    githubUrl: 'https://github.com/sushamaray/borrowed',
     liveUrl: '',
+  },
+]
+
+export const otherProjectsData = [
+  {
+    id: 'mazeunit',
+    title: 'MazeUnit',
+    category: 'Algorithm Visualization',
+
+    description:
+      'An interactive maze and pathfinding visualization project that demonstrates how the A* Search Algorithm finds a path through a maze. It helps users explore algorithmic problem-solving through visual interaction.',
+
+    technologies: ['A* Search', 'Pathfinding', 'Visualization'],
+
+    githubUrl: 'https://github.com/sushamaray/MazeUnit',
+  },
+
+  {
+    id: 'algovista',
+    title: 'AlgoVista',
+    category: 'Algorithm Visualization',
+
+    description:
+      'An animated algorithm and system visualizer designed to make complex concepts easier to understand. The project focuses on interactive visualizations, graph exploration, and a clean interface with light and dark themes.',
+
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+
+    githubUrl: 'https://github.com/sushamaray/algovista',
+  },
+
+  {
+    id: 'exam-integrity-proctoring-system',
+    title: 'Exam Integrity & Automated Proctoring System',
+    category: 'Academic Project',
+
+    description:
+      'A secure online examination platform built with Java Spring Boot and React. Features automated proctoring through browser-event monitoring, real-time risk scoring, similarity-based cheating detection, dynamic question generation, automated MCQ grading, and faculty monitoring dashboards.',
+
+    technologies: [
+      'Java',
+      'Spring Boot',
+      'React',
+      'WebSocket',
+      'Object-Oriented Programming',
+    ],
+
+    githubUrl:
+      'https://github.com/sushamaray/exam-integrity-proctoring-system',
+  },
+
+  {
+    id: 'guess-the-creature',
+    title: 'Guess the Creature',
+    category: 'Game Development',
+
+    description:
+      'An interactive creature-guessing game that uses question-based logic to narrow down possible answers. It demonstrates programming logic and interactive problem-solving in a game format.',
+
+    technologies: ['Java', 'Object-Oriented Programming'],
+
+    githubUrl: 'https://github.com/sushamaray/guessthecreature',
   },
 ]
