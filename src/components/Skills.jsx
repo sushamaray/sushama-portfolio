@@ -65,11 +65,6 @@ export default function Skills() {
             </article>
           ))}
         </div>
-
-        <p className="mt-8 text-center text-xs leading-6 text-[var(--color-text-muted)]">
-          This toolkit reflects my learning journey and is not a ranking of
-          proficiency.
-        </p>
       </div>
     </section>
   )
