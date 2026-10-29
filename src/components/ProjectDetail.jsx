@@ -84,11 +84,19 @@ function ProjectDetail() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold !text-white transition-colors hover:bg-[var(--color-primary-dark)]"
                 >
-                  <FiExternalLink size={17} aria-hidden="true" />
-                  Live Demo
-                  <FiArrowUpRight size={15} aria-hidden="true" />
+                  <FiExternalLink
+                    size={17}
+                    aria-hidden="true"
+                    className="!text-white"
+                  />
+                  <span className="!text-white">Live Demo</span>
+                  <FiArrowUpRight
+                    size={15}
+                    aria-hidden="true"
+                    className="!text-white"
+                  />
                 </a>
               )}
 
