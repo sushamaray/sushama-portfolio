@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import {
   FiArrowDown,
@@ -120,10 +121,14 @@ export default function Hero() {
             <a
               href="/sushama-resume.pdf"
               download="Sushama-Ray-Resume.pdf"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--color-primary-dark)] to-[var(--color-primary)] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--color-primary)]/20 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-background)]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[var(--color-primary-dark)] to-[var(--color-primary)] px-6 py-3 text-sm font-semibold !text-white shadow-lg shadow-[var(--color-primary)]/20 transition duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[var(--color-primary)]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-light)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-background)]"
             >
-              <FiDownload size={18} aria-hidden="true" />
-              Download Resume
+              <FiDownload
+                size={18}
+                aria-hidden="true"
+                className="!text-white"
+              />
+              <span className="!text-white">Download Resume</span>
             </a>
 
             <a

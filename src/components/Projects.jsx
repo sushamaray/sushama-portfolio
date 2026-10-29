@@ -1,6 +1,5 @@
 
 import { Link } from 'react-router-dom'
-
 import {
   FiArrowUpRight,
   FiCode,
@@ -132,10 +131,14 @@ function Projects() {
                 <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-[var(--color-border)] pt-5">
                   <Link
                     to={`/project/${project.id}`}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-primary)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[var(--color-primary)] px-4 py-2.5 text-sm font-semibold !text-white transition-colors hover:bg-[var(--color-primary-dark)]"
                   >
-                    View Details
-                    <FiArrowUpRight size={16} aria-hidden="true" />
+                    <span className="!text-white">View Details</span>
+                    <FiArrowUpRight
+                      size={16}
+                      aria-hidden="true"
+                      className="!text-white"
+                    />
                   </Link>
 
                   {project.githubUrl && (

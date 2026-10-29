@@ -1,3 +1,4 @@
+
 import {
   FiMail,
   FiGithub,
@@ -58,8 +59,8 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Top row: Email, LinkedIn, Facebook */}
-        <div className="mx-auto grid max-w-4xl grid-cols-3 gap-2.5 sm:gap-4">
+        {/* Email, LinkedIn, Facebook */}
+        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
           {socialLinks.map(({ label, value, href, action, Icon }) => {
             const isEmail = href.startsWith('mailto:')
 
@@ -96,37 +97,37 @@ export default function Contact() {
               </a>
             )
           })}
+
+          {/* GitHub: fourth card on mobile, full-width row on desktop */}
+          <a
+            href="https://github.com/sushamaray"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex min-w-0 flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-primary)]/60 sm:col-span-3 sm:flex-row sm:items-center sm:gap-4 sm:p-3"
+          >
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/10 text-[var(--color-primary-light)] sm:h-11 sm:w-11">
+              <FiGithub size={22} aria-hidden="true" />
+            </span>
+
+            <span className="mt-2 min-w-0 flex-1 sm:mt-0">
+              <span className="block text-xs font-semibold text-[var(--color-text)] sm:text-base">
+                GitHub
+              </span>
+              <span className="mt-1 block text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm">
+                Explore my projects
+              </span>
+            </span>
+
+            <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-primary-light)] sm:mt-0 sm:gap-1.5 sm:text-sm">
+              <span>Visit GitHub</span>
+              <FiArrowUpRight
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
+            </span>
+          </a>
         </div>
-
-        {/* Bottom row: GitHub */}
-        <a
-          href="https://github.com/sushamaray"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mx-auto mt-4 flex max-w-4xl items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 transition-all duration-200 hover:border-[var(--color-primary)]/60 sm:gap-4 sm:p-3"
-        >
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/10 text-[var(--color-primary-light)] sm:h-11 sm:w-11">
-            <FiGithub size={22} aria-hidden="true" />
-          </span>
-
-          <span className="min-w-0 flex-1">
-            <span className="block text-sm font-semibold text-[var(--color-text)] sm:text-base">
-              GitHub
-            </span>
-            <span className="mt-1 block text-xs leading-5 text-[var(--color-text-muted)] sm:text-sm">
-              Explore my projects
-            </span>
-          </span>
-
-          <span className="inline-flex shrink-0 items-center gap-1.5 text-xs font-semibold text-[var(--color-primary-light)] sm:text-sm">
-            <span>Visit GitHub</span>
-            <FiArrowUpRight
-              size={16}
-              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              aria-hidden="true"
-            />
-          </span>
-        </a>
 
         <div className="mt-7 flex items-center justify-center gap-2 text-center text-xs text-[var(--color-text-muted)] sm:text-sm">
           <FiMessageCircle
